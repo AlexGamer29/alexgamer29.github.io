@@ -1,0 +1,66 @@
+.sidebar__list-items-link {
+  min-width: 0;
+  padding-right: var(--app-sidebar-padding);
+  height: 100%;
+  display: flex;
+  flex: 1 1;
+  align-items: center;
+  color: inherit;
+  line-height: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+  animation-duration: 0ms !important;
+  background-color: transparent;
+}
+
+.list__title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+  margin: 0;
+  margin-left: var(--app-sidebar-padding);
+  line-height: var(--app-sidebar-item-icon-size);
+  letter-spacing: var(--sidebar-item-letter-spacing);
+  animation-duration: 0ms !important;
+}
+
+.category__title-primary {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  animation-duration: 0ms !important;
+}
+
+.list__badge {
+  min-width: var(--app-sidebar-item-icon-size);
+  height: var(--app-sidebar-item-icon-size);
+  margin: 0 0 0 6px;
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  animation-duration: 0ms !important;
+}
+
+.list__badge-container {
+  min-width: var(--badge-size);
+  height: var(--badge-size);
+  color: var(--badge-text-color);
+  background-color: var(--badge-bg-color);
+  border-radius: 10rem;
+  display: flex;
+  justify-content: center;
+  padding: 0 2px;
+  transition: color var(--animation-speed-very-fast) linear,
+    background-color var(--animation-speed-very-fast) linear;
+  animation-duration: 0ms !important;
+}
+
+.badge {
+  color: inherit;
+  font-size: calc(var(--badge-size) / 2);
+  font-weight: 600;
+  line-height: var(--badge-size);
+  animation-duration: 0ms !important;
+}

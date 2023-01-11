@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todolist</title>
+    <link rel="stylesheet" href="../src/css/Root.css" />
+    <link rel="stylesheet" href="../src/css/Navbar.css" />
+    <link rel="stylesheet" href="../src/css/SignUpBtn.css" />
+    <link rel="stylesheet" href="../src/css/LoginBtn.css" />
+    <link rel="stylesheet" href="../src/css/Home.css" />
+    <link rel="stylesheet" href="../src/css/Header.css" />
+    <script
+      src="https://kit.fontawesome.com/515a01cbc0.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Script for Font Awesome Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Inter font -->
+  </head>
+  <body>
+    <nav class="navbar">
+      <a href="/">
+        <div class="navbar-logo">
+          <img src="../src/img/logo.png" alt="" class="logo" />
+        </div>
+      </a>
+
+      <div class="menu-icon" onClick="{handleClick}">
+        <!-- <i class={click ? "fas fa-times" : "fas fa-bars"} /> -->
+        <i class="fas fa-times"></i>
+      </div>
+
+      <!-- <ul class={click ? "nav-menu active" : "nav-menu"}> -->
+      <ul class="nav-menu">
+        <li
+          class="nav-item"
+          onMouseEnter="{onMouseEnter}"
+          onMouseLeave="{onMouseLeave}"
+        >
+          <a href="/make-todolist" class="nav-links" onClick="{closeMobileMenu}">
+            Make todoList <i class="fas fa-caret-down"></i>
+          </a>
+          <!-- {dropdown && <Dropdown />} -->
+        </li>
+        <li class="nav-item">
+          <a href="/explore" class="nav-links" onClick="{closeMobileMenu}">
+            Explore
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="/learn" class="nav-links" onClick="{closeMobileMenu}">
+            Learn
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="/about" class="nav-links" onClick="{closeMobileMenu}">
+            About
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="/login" class="nav-links-mobile" onClick="{closeMobileMenu}">
+            Login
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="../src/SignUp.html" class="nav-links-mobile" onClick="{closeMobileMenu}">
+            Sign Up
+          </a>
+        </li>
+      </ul>
+      <div class="nav-authorization-area">
+        <a href="../src/SignUp.html" class="signup__btn__container">
+          <div class="btn__container">
+            <button class="btn__signup">Signup</button>
+          </div>
+        </a>
+        <div class="divider"></div>
+        <a href="../src/Login.html" class="login__btn__container">
+          <div class="btn__container">
+            <button class="btn__login">Login</button>
+          </div>
+        </a>
+      </div>
+    </nav>
+
+    <div class="app__homepage">
+      <div class="app__header">
+        <div class="app__header-info">
+          <div class="header__title">
+            <div class="header__title-primary">
+              <p>
+                Utilize to do list to plan your life and oversee the work of your
+                team
+              </p>
+            </div>
+            <div class="header__title-secondary">
+              <p>
+                People organize their tasks, lists and manage their team’s
+                projects with todoList
+              </p>
+            </div>
+          </div>
+          <div class="app__header-img">
+            <img src="../src/img/header-image.webp" alt=""></img>
+          </div>
+          <div class="app__header-customer">
+            <h1 class="customer__title-primary">Join with our 1,000+ customers around the globe</h1>
+            <div class="customer-list">
+              <i class="fa-brands fa-google"></i>
+              <i class="fa-brands fa-facebook"></i>
+              <i class="fa-brands fa-youtube"></i>
+              <i class="fa-brands fa-linkedin-in"></i>
+              <i class="fa-brands fa-github"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>

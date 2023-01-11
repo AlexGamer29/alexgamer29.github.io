@@ -1,0 +1,221 @@
+*,
+:before,
+:after {
+  box-sizing: border-box;
+}
+
+div#signup__form__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 5em 0 5em;
+}
+
+div#form__container {
+  max-width: 80vw;
+  display: flex;
+  flex-direction: column;
+}
+
+div#form__container__wrap {
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  box-shadow: 0 8px 38px 0 rgb(0 0 0 / 20%);
+  padding: 3.5rem 3.5rem 0;
+}
+
+div#form__header {
+  padding-bottom: 2rem;
+}
+
+h1#form__header-primary {
+  font-size: 1.75rem;
+  line-height: 2rem;
+}
+
+div#form__sub__header {
+  padding-bottom: 1rem;
+}
+
+h4#form__sub__header-primary {
+  font-size: 1rem;
+  line-height: 2rem;
+  font-weight: 400;
+}
+
+span#asterisk {
+  font-weight: bold;
+}
+
+div#form__names-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: stretch;
+}
+
+div#firstname__container {
+  padding-right: 1em;
+}
+
+div#form__password-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+div#form__password__sub-container {
+  display: flex;
+  flex-direction: row;
+}
+
+div#form__password__input-container {
+  width: 100%;
+  padding: 1px;
+}
+
+span#form__password__input {
+  width: 100%;
+  flex-direction: row;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  height: 50px;
+  border: 1px;
+  border-color: var(--line);
+  border-style: solid;
+}
+
+input#form__password-input {
+  text-align: start;
+  border: none;
+  outline: none;
+  flex-grow: 2;
+  padding: 1rem;
+  appearance: none;
+}
+
+div#eyes__password {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  padding: 1rem 1rem 1rem 0;
+}
+
+.fa-eye,
+.fa-eye-slash {
+  position: relative;
+  transition: all 0.5s ease-out;
+}
+
+.fa-regular form {
+  display: block;
+  margin-top: 0em;
+}
+
+.form__item {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 1.5rem;
+}
+
+.form__field-title {
+  padding: 0.25rem 0 0.25rem;
+  font-size: 1em;
+}
+
+input#form__email-input,
+input#form__firstname-input,
+input#form__lastname-input {
+  padding: 0 1rem 0;
+  height: 50px;
+  outline: none;
+  border: 1px;
+  border-color: var(--line);
+  border-style: solid;
+  overflow: hidden;
+}
+
+button#signup {
+  padding: 6px 18px;
+  border-radius: 4px;
+  outline: none;
+  border: none;
+  font-size: 18px;
+  color: #fff;
+  cursor: pointer;
+  background-color: #1888ff;
+}
+
+button#signup:active {
+  transition: all 1s ease-in-out;
+  background-color: transparent;
+  color: #fff;
+  border-radius: 4px;
+  border: 2px solid #1888ff;
+}
+
+button#signup {
+  padding: 0.75rem 0.5rem;
+  outline: none;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+button#signup:disabled {
+  background-color: rgb(151, 183, 254);
+}
+
+span.form__error {
+  font-size: 0.85rem;
+  text-align: left;
+  color: red;
+  display: block;
+}
+
+input:invalid[focused="true"] {
+  border: 1px solid red;
+}
+
+input:invalid[focused="true"] ~ span.form__error {
+  display: block;
+}
+
+div#form__agree__terms {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+div#checkbox__btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+div#checkbox__btn > input {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+div#form__agree__terms-header {
+  padding: 0 1rem 0;
+}
+
+div#form__signup-btn {
+  width: auto;
+  height: 4.5em;
+  display: flex;
+  text-align: center;
+}
+
+div#form__to-login {
+  height: 20px;
+  padding-bottom: 3.5rem;
+}

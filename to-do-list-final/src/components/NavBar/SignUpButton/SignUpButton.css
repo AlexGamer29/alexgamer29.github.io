@@ -1,0 +1,33 @@
+.signup__btn__container {
+  text-decoration: none;
+}
+
+div.btn__container {
+  width: auto;
+  height: 2em;
+  display: flex;
+  text-align: center;
+}
+
+.btn__signup {
+  padding: 0.5rem 0.5rem;
+  border-radius: 4px;
+  outline: none;
+  border: none;
+  font-size: 1.25rem;
+  color: #9b9b9b;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.btn__signup:hover {
+  color: #f20c42;
+  transition: all 0.2s ease-out 0s;
+  background-color: transparent;
+}
+
+.btn__signup:active {
+  color: #8d0726;
+  transition: all 0.2s ease-in-out 0s;
+  background-color: transparent;
+}

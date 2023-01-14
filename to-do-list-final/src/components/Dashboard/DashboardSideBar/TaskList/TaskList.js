@@ -12,7 +12,7 @@ function TaskList(props) {
     },
   };
 
-  async function deleteTask(id) {
+  async function deleteTask() {
     try {
       const taskListID = location.pathname.split("/")[2];
       console.log(taskListID);
@@ -20,6 +20,7 @@ function TaskList(props) {
       const response = await axiosClient.delete(deleteTaskURL, config);
       console.log(response);
       await props.fetchTask();
+      window.location.reload();
     } catch (error) {
       console.log(error.code + error);
     }

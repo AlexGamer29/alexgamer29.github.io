@@ -65,7 +65,6 @@ function DashboardSideBar() {
                 <li className="sidebar__nav-item">
                   <ul className="sidebar__ul">
                     <li className="sidebar__group-items">
-                      <a href="" className="sidebar__group-items-link">
                         <div className="category__icon">
                           <div className="icon__container">
                             <svg
@@ -112,7 +111,6 @@ function DashboardSideBar() {
                             <div className="badge">99+</div>
                           </div>
                         </div>
-                      </a>
                     </li>
                   </ul>
                 </li>

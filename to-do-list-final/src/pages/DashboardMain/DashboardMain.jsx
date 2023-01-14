@@ -8,6 +8,8 @@ import { TaskList, Todo } from "../../components/index";
 import ProfileLogo from "../../assets/profile-logo.png";
 
 import "./DashboardMain.css";
+import ModalForm from "../../components/Modal/Modal";
+import Search from "../../components/Search/Search";
 
 const DashboardMain = () => {
   const url = process.env.REACT_APP_BASE_URL;
@@ -19,6 +21,17 @@ const DashboardMain = () => {
   const [selectedTaskList, setSelectedTaskList] = useState([]);
   const [selectedTodo, setSelectedTodo] = useState();
   const [selectedItem, setSelectedItem] = useState([]);
+
+  const [modal, setModal] = useState(false);
+  const [search, setSearch] = useState(false);
+
+  const toggleSetTask = () => {
+    setModal(!modal);
+  };
+
+  const toggleSearch = () => {
+    setSearch(!search);
+  };
 
   var config = {
     headers: {
@@ -141,6 +154,19 @@ const DashboardMain = () => {
     setLoading(false);
   };
 
+  const logOut = async () => {
+    try {
+      const logOutURL = `${url}/auth/sign_out`;
+      const response = await axiosClient.delete(logOutURL, config);
+      setLoading(true);
+      console.log(response);
+      localStorage.clear();
+      history("/");
+      window.location.reload();
+    } catch (error) {}
+    setLoading(false);
+  };
+
   useEffect(() => {
     getTask();
 
@@ -175,56 +201,96 @@ const DashboardMain = () => {
                 <div className="sidebar__nav-container-wrap">
                   <ul className="sidebar__nav-items">
                     <li className="sidebar__nav-item">
-                      <ul className="sidebar__ul">
+                      <ul className="sidebar__ul" onClick={toggleSearch}>
                         <li className="sidebar__group-items">
-                          <a href="" className="sidebar__group-items-link">
-                            <div className="category__icon">
-                              <div className="icon__container">
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  width={24}
-                                  height={24}
+                          <div className="category__icon">
+                            <div className="icon__container">
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width={24}
+                                height={24}
+                                style={{
+                                  width: "100%",
+                                  height: "100%",
+                                  transform: "translate3d(0,0,0)",
+                                  contentVisibility: "visible",
+                                }}
+                              >
+                                <defs>
+                                  <clipPath id="a">
+                                    <path d="M0 0h24v24H0z" />
+                                  </clipPath>
+                                </defs>
+                                <g
                                   style={{
-                                    width: "100%",
-                                    height: "100%",
-                                    transform: "translate3d(0,0,0)",
-                                    contentVisibility: "visible",
+                                    display: "block",
                                   }}
+                                  clipPath="url(#a)"
                                 >
-                                  <defs>
-                                    <clipPath id="a">
-                                      <path d="M0 0h24v24H0z" />
-                                    </clipPath>
-                                  </defs>
-                                  <g
-                                    style={{
-                                      display: "block",
-                                    }}
-                                    clipPath="url(#a)"
-                                  >
-                                    <path
-                                      strokeLinecap="round"
-                                      strokeLinejoin="round"
-                                      stroke="#030303"
-                                      strokeWidth={1.6}
-                                      d="M14.625 21h-8.5C4.951 21 4 20.194 4 19.2V4.8C4 3.806 4.951 3 6.125 3h12.75C20.049 3 21 3.806 21 4.8v14.6a1.6 1.6 0 0 1-1.6 1.6h-4.775zM16 11.5H8M16 8H8M10 15H8"
-                                      fill="none"
-                                    />
-                                  </g>
-                                </svg>
-                              </div>
+                                  <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    stroke="#030303"
+                                    strokeWidth={1.6}
+                                    d="M14.625 21h-8.5C4.951 21 4 20.194 4 19.2V4.8C4 3.806 4.951 3 6.125 3h12.75C20.049 3 21 3.806 21 4.8v14.6a1.6 1.6 0 0 1-1.6 1.6h-4.775zM16 11.5H8M16 8H8M10 15H8"
+                                    fill="none"
+                                  />
+                                </g>
+                              </svg>
                             </div>
-                            <div className="category__title">
-                              <div className="category__title-primary">
-                                All tasks
-                              </div>
+                          </div>
+                          <div className="category__title">
+                            <div className="category__title-primary">
+                              Search
                             </div>
-                            <div className="category__badge">
-                              <div className="category__badge-container">
-                                <div className="badge">99+</div>
-                              </div>
+                          </div>
+                        </li>
+                      </ul>
+                    </li>
+                    <li className="sidebar__nav-item">
+                      <ul className="sidebar__ul" onClick={() => logOut()}>
+                        <li className="sidebar__group-items">
+                          <div className="category__icon">
+                            <div className="icon__container">
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width={24}
+                                height={24}
+                                style={{
+                                  width: "100%",
+                                  height: "100%",
+                                  transform: "translate3d(0,0,0)",
+                                  contentVisibility: "visible",
+                                }}
+                              >
+                                <defs>
+                                  <clipPath id="a">
+                                    <path d="M0 0h24v24H0z" />
+                                  </clipPath>
+                                </defs>
+                                <g
+                                  style={{
+                                    display: "block",
+                                  }}
+                                  clipPath="url(#a)"
+                                >
+                                  <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    stroke="#030303"
+                                    strokeWidth={1.6}
+                                    d="M14.625 21h-8.5C4.951 21 4 20.194 4 19.2V4.8C4 3.806 4.951 3 6.125 3h12.75C20.049 3 21 3.806 21 4.8v14.6a1.6 1.6 0 0 1-1.6 1.6h-4.775zM16 11.5H8M16 8H8M10 15H8"
+                                    fill="none"
+                                  />
+                                </g>
+                              </svg>
                             </div>
-                          </a>
+                          </div>
+                          <div className="category__title">
+                            <div className="category__title-primary">
+                              Log out
+                            </div>
+                          </div>
                         </li>
                       </ul>
                     </li>
@@ -240,7 +306,11 @@ const DashboardMain = () => {
                           </div>
                           <div className="sidebar__heading-utils">
                             <div className="sidebar__heading-add-btn">
-                              <button className="add-btn" type="button">
+                              <button
+                                className="add-btn"
+                                type="button"
+                                onClick={toggleSetTask}
+                              >
                                 <svg
                                   xmlns="http://www.w3.org/2000/svg"
                                   xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -293,6 +363,7 @@ const DashboardMain = () => {
                                       taskID={item.id}
                                       taskName={item.name}
                                       todoCount={item.todo_count}
+                                      fetchTask={getTask}
                                     />
                                   </button>
                                 );
@@ -619,10 +690,43 @@ const DashboardMain = () => {
                   </div>
                 </div>
               </article>
+
+              {modal && (
+                <article className="right__tasklist" con>
+                  <div className="base__panel">
+                    <div className="base__panel__container">
+                      <div className="base__panel__container__wrap">
+                        <div className="base__panel__wrap">
+                          <div style={{ zIndex: 999 }}>
+                            <ModalForm showModal={modal} />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              )}
+
+              {search && (
+                <article className="right__tasklist" con>
+                  <div className="base__panel">
+                    <div className="base__panel__container">
+                      <div className="base__panel__container__wrap">
+                        <div className="base__panel__wrap">
+                          <div style={{ zIndex: 999 }}>
+                            <Search showModal={search} />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              )}
             </section>
           </div>
         </div>
       </div>
+
       <div>
         <div>
           <img

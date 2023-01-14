@@ -1,6 +1,6 @@
 {
   "name": "to-do-list",
-  "homepage": "https://alexgamer29.github.io/#",
+  "homepage": "https://alexgamer29.github.io/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -9,6 +9,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.2.0",
+    "env-cmd": "^10.1.0",
     "firebase": "^9.13.0",
     "gh-pages": "^4.0.0",
     "react": "^18.2.0",
@@ -26,7 +27,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "predeploy": "npm run build",
+    "predeploy": "env-cmd -f .env.staging npm run build ",
     "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",

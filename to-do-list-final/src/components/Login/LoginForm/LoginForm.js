@@ -108,9 +108,9 @@ export default function LoginForm() {
                           name="password"
                           {...register("password", {
                             required: true,
-                            minLength: 8,
+                            // minLength: 8,
                             maxLength: 30,
-                            pattern: /[a-zA-Z]/,
+                            // pattern: /[a-zA-Z]/,
                           })}
                         />
                         <div id="eyes__password">
@@ -130,21 +130,21 @@ export default function LoginForm() {
                 {errors?.password?.type === "required" && (
                   <span className="form__error">This field is required</span>
                 )}
-                {errors?.password?.type === "minLength" && (
+                {/* {errors?.password?.type === "minLength" && (
                   <span className="form__error">
                     Password length minimum is 8 characters
                   </span>
-                )}
+                )} */}
                 {errors?.password?.type === "maxLength" && (
                   <span className="form__error">
                     Password length maximum is 30 characters
                   </span>
                 )}
-                {errors?.password?.type === "pattern" && (
+                {/* {errors?.password?.type === "pattern" && (
                   <span className="form__error">
                     Password can only contain Latin letters
                   </span>
-                )}
+                )} */}
               </div>
               <div id="form__forgot-password" className="form__item">
                 <Link to="/forgot-password">

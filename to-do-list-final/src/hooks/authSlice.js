@@ -40,8 +40,7 @@ export const signIn = createAsyncThunk(
     localStorage.setItem("access-token", response.headers.get("access-token"));
     localStorage.setItem("uid", response.headers.get("uid"));
     localStorage.setItem("client", response.headers.get("client"));
-    // localStorage.setItem("email", response.data("email"));
-    // localStorage.setItem("name", response.data("name"));
+    localStorage.setItem("user-info", JSON.stringify(response.data.data));
     return response;
   }
 );
@@ -51,9 +50,11 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     logout: (state) => {
-      localStorage.removeItem("access-token");
-      localStorage.removeItem("uid");
-      localStorage.removeItem("client");
+      // localStorage.removeItem("access-token");
+      // localStorage.removeItem("uid");
+      // localStorage.removeItem("client");
+      // localStorage.removeItem("user-info");
+      localStorage.clear();
       state.loading = false;
       state.userInfo = null;
       state.userToken = null;

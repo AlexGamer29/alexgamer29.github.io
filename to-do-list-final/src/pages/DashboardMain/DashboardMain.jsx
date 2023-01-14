@@ -62,6 +62,7 @@ const DashboardMain = () => {
     } catch (error) {
       console.log(error.code + error);
     }
+    window.location.reload();
     fetchTodo();
     getTask();
     setLoading(false);

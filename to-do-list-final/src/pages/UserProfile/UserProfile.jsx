@@ -12,7 +12,6 @@ function UserProfile(props) {
   const {
     register,
     handleSubmit,
-    reset,
     formState: { errors },
   } = useForm();
 

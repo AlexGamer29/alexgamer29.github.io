@@ -1,18 +1,16 @@
 import { unwrapResult } from "@reduxjs/toolkit";
 import React from "react";
 import { useForm } from "react-hook-form";
-import { useDispatch } from "react-redux";
+import { connect, useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
 import axiosClient from "../../api/axiosClient";
-import logout from "../../hooks/authSlice";
 import "./ChangePassword.css";
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-function ChangePassword() {
+function ChangePassword(props) {
   const url = process.env.REACT_APP_BASE_URL;
-  const history = useNavigate();
-  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const {
     register,
@@ -37,26 +35,20 @@ function ChangePassword() {
       alert("Mật khẩu đã nhập đúng");
       try {
         const payload = {
-          user: {
-            password: data.password,
-            password_confirmation: data.password,
-          },
+          email: JSON.parse(props.user.userInfo).email,
+          password: data.password,
+          password_confirmation: data.password,
         };
         console.log(payload);
-        const userProfileURL = `${url}/auth`;
-        const response = await axiosClient.patch(
-          userProfileURL,
-          payload,
-          config
-        );
+        const userProfileURL = `${url}/auth/password`;
+        const response = await axiosClient.put(userProfileURL, payload, config);
         alert(
           "Change password " + response.data.status.toString().concat("fully")
         );
-        const logOut = await dispatch(logout());
-        unwrapResult(logOut); // MUST HAVE THIS LINE TO CATCH ERROR
+        localStorage.clear();
         console.log(response);
-        history("/");
       } catch (error) {}
+      navigate("/dashboard");
     }
   };
 
@@ -134,4 +126,8 @@ function ChangePassword() {
   );
 }
 
-export default ChangePassword;
+const mapStateToProps = (state) => ({
+  user: state.user,
+});
+
+export default connect(mapStateToProps)(ChangePassword);
